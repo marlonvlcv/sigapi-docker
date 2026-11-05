@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: sigapi_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: sigapi_user
+      POSTGRES_PASSWORD: sigapi_password
+      POSTGRES_DB: sigapi_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
